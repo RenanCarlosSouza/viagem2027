@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Viagem 2027</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>✈️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef1f8;--card:#fff;--text:#0a1f44;--muted:#4a5a7d;--line:#d3daea;--sun:#c9a54c;--sea:#1d4fa3;--ink:#0a1f44;--onink:#f3ead2;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#061330;--card:#0d2150;--text:#eef2fb;--muted:#a9b6d6;--line:#1e3570;--sea:#e0bf6a;--ink:#030b1f;--onink:#f3ead2}}
+:root[data-theme="dark"]{--bg:#061330;--card:#0d2150;--text:#eef2fb;--muted:#a9b6d6;--line:#1e3570;--sea:#e0bf6a;--ink:#030b1f;--onink:#f3ead2}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.55 "Instrument Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Trebuchet MS",sans-serif;line-height:1.1;margin:0}
+.pl{width:1em;height:1em;fill:currentColor;vertical-align:-.12em}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ink);color:var(--onink);display:flex;gap:6px;align-items:center;padding:10px 16px;overflow-x:auto}
+nav b{font:800 20px "Bricolage Grotesque",sans-serif;margin-right:12px;white-space:nowrap}
+nav button{background:none;border:0;color:inherit;font:600 15px "Instrument Sans",sans-serif;padding:8px 14px;border-radius:99px;cursor:pointer;white-space:nowrap}
+nav button[aria-current=page]{background:var(--sun);color:#0a1f44}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+main{max-width:1040px;margin:0 auto;padding:32px 20px 64px}
+.hero{padding:40px 0 24px}
+.hero h1{font-size:clamp(44px,9vw,92px);font-weight:800}
+.hero p{max-width:56ch;color:var(--muted);font-size:20px}
+.sec{margin-top:48px}.sec>h2{font-size:34px;margin-bottom:18px}
+.tl{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.box{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--sun);border-radius:18px;padding:22px}
+.box .yr{font:800 44px "Bricolage Grotesque",sans-serif;color:var(--sea)}
+.box.ink{background:var(--ink);color:var(--onink);border-color:var(--ink)}.box.ink .yr{color:var(--sun)}
+.dg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.dc{all:unset;box-sizing:border-box;cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:block}
+.dc:hover{border-color:var(--sea)}.dc:focus-visible{outline:3px solid var(--sun)}
+.dc .em{font-size:54px;line-height:1}.dc h3{font-size:26px;margin:10px 0 6px}.dc p{color:var(--muted);margin:0}
+.dh{display:flex;gap:18px;align-items:center;flex-wrap:wrap}.dh .em{font-size:76px;line-height:1}
+.dh h1{font-size:clamp(40px,7vw,68px);font-weight:800}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+ul.l{margin:0;padding-left:20px}ul.l li{margin:4px 0}
+label{display:block;font-weight:600;font-size:14px;margin:12px 0 4px}
+input,select,textarea{width:100%;font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn{font:700 16px "Instrument Sans",sans-serif;background:var(--sun);color:#0a1f44;border:0;border-radius:99px;padding:12px 22px;cursor:pointer;margin-top:16px}
+.btn.s{background:none;border:1px solid var(--line);color:var(--text);padding:8px 16px;margin-top:8px}
+.tag{display:inline-block;background:var(--sun);color:#0a1f44;border-radius:99px;padding:2px 12px;font-weight:700;font-size:14px}
+.chk{display:flex;gap:10px;align-items:flex-start;margin:8px 0;font-weight:500}.chk input{width:auto;margin-top:5px}
+.dep{border-left:4px solid var(--sea);padding:4px 0 4px 14px;margin:12px 0}.dep small{color:var(--muted)}
+.empty{color:var(--muted)}
+.bp{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;text-align:center}
+.bp b{font:800 clamp(26px,5vw,44px) "Bricolage Grotesque",sans-serif;display:block}.bp .pl{font-size:36px;color:var(--sea)}
+.sp{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.sp>div{flex:1;min-width:130px;background:var(--bg);border-radius:12px;padding:10px 14px}.sp small{color:var(--muted);display:block}
+a{color:var(--sea);font-weight:600}
+table{font-size:15px}
+#ts{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--onink);border:1px solid var(--sun);padding:10px 18px;border-radius:99px;opacity:0;transition:opacity .3s;z-index:20;pointer-events:none;max-width:90vw;text-align:center}
+#pres{position:fixed;inset:0;z-index:60;background:var(--ink);color:var(--onink);display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px)}
+#pres .pb{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px 28px;gap:14px;overflow:auto}
+#pres h1{font-size:clamp(44px,10vw,110px);color:var(--sun);margin:0}
+#pres h2{font-size:clamp(30px,6vw,64px);margin:0}
+#pres .big{font-size:clamp(20px,3.4vw,34px);max-width:30ch;margin:0}
+#pres .it{font-size:clamp(18px,2.6vw,28px);margin:2px 0}
+#pres .bar{height:16px;width:min(80vw,520px);background:rgba(255,255,255,.18);border-radius:99px;overflow:hidden}
+#pres .bar i{display:block;height:100%;background:var(--sun)}
+#pres .pn{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 14px calc(12px + env(safe-area-inset-bottom,0px));border-top:3px solid var(--sun)}
+#pres .pn .btn{margin:0;width:auto;background:none;border:1px solid var(--onink);color:var(--onink);padding:8px 12px;font-size:14px}
+#pres .pc{font-weight:600}
+@media (min-width:1200px){main{max-width:1180px}}
+@media (min-width:641px) and (max-width:1024px){main{padding:28px 24px 56px}}
+@media (max-width:640px){main{padding:20px 14px 110px}.row{grid-template-columns:1fr}.bp{grid-template-columns:1fr}.bp .pl{transform:rotate(90deg);margin:0 auto}nav{position:fixed;top:auto;bottom:0;left:0;right:0;padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px));border-top:3px solid var(--sun)}nav b{display:none}nav button{padding:10px 12px}footer{padding-bottom:90px}#ts{bottom:calc(88px + env(safe-area-inset-bottom,0px))}.btn{width:100%}.btn.s{width:auto}.sp>div{min-width:100px}}
+footer{text-align:center;color:var(--muted);padding:24px}
+#intro{position:fixed;inset:0;z-index:50;background:var(--ink);color:var(--onink);overflow:hidden;transition:opacity .6s}
+#intro .A,#intro .B{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;gap:10px;overflow:auto}
+#intro .B{display:none}
+#intro .A{animation:fo .5s 7s forwards}
+#intro .yr{font:800 clamp(52px,12vw,120px)/1 "Bricolage Grotesque","Trebuchet MS",sans-serif;color:var(--sun);margin:0}
+#intro .B .yr{font-size:clamp(40px,8vw,72px)}
+#intro .ph{font-size:clamp(20px,3.4vw,32px);max-width:28ch;margin:0}
+#intro .A .yr,#intro .A .ph{opacity:0;animation:fi 1.6s 2.6s forwards}
+#intro .A .ph{animation-delay:3.4s}
+#intro .B .yr,#intro .B .ph{opacity:0;animation:fi 1.4s 3.8s forwards}
+#intro .sk{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:14px;z-index:2;background:none;border:1px solid var(--onink);color:var(--onink);margin:0;width:auto}
+#intro .fly{position:absolute;top:18%;left:0;font-size:clamp(64px,12vw,110px);color:var(--sun);animation:fly 7s linear forwards}
+#intro .fly .pl,#intro .ld .pl{transform:rotate(90deg)}
+#intro .tr{position:absolute;top:calc(18% + clamp(32px,6vw,55px));left:0;height:0;border-top:4px dashed var(--sun);opacity:.5;animation:tr 7s linear forwards}
+#intro .stage{position:relative;width:min(88vw,560px);aspect-ratio:16/9;flex:none}
+#intro .stage svg{position:absolute;inset:0;width:100%;height:100%}
+#intro .rw{fill:none;stroke:var(--sun);stroke-width:8;stroke-dasharray:1;stroke-dashoffset:1;animation:dr 4s .2s ease forwards}
+#intro .rc{fill:none;stroke:var(--onink);stroke-width:3;stroke-dasharray:.015 .015;opacity:0;animation:fi 1s 3.2s forwards}
+#intro .st{position:absolute;width:20%;aspect-ratio:1;background:var(--card);color:var(--text);border:2px solid var(--sun);border-radius:14px;display:grid;place-items:center;align-content:center;font-size:clamp(22px,5vw,38px);line-height:1.1;opacity:0;animation:pa .7s forwards}
+#intro .st small{font:600 clamp(9px,1.9vw,13px) "Instrument Sans",sans-serif}
+#intro .st::before{content:"";position:absolute;top:-8px;left:50%;width:38%;height:13px;background:var(--sun);opacity:.85;transform:translateX(-50%) rotate(-4deg)}
+#intro .s1{left:15%;top:14%;animation-delay:.6s}
+#intro .s2{right:15%;top:14%;animation-delay:1.3s}
+#intro .s3{left:15%;bottom:14%;animation-delay:2s}
+#intro .s4{right:15%;bottom:14%;animation-delay:2.7s}
+#intro .ld{position:absolute;left:-8%;bottom:34%;font-size:clamp(24px,5vw,38px);color:var(--sun);opacity:0;animation:ld 3s 5.4s ease-out forwards}
+#intro .go{opacity:0;animation:fi .8s 7.5s forwards;margin-top:6px}
+@keyframes fly{from{transform:translate(-20vw,30px)}to{transform:translate(110vw,-30px)}}
+@keyframes tr{from{width:0}to{width:110vw}}
+@keyframes fi{to{opacity:1}}
+@keyframes fo{to{opacity:0}}
+@keyframes dr{to{stroke-dashoffset:0}}
+@keyframes pa{0%{opacity:0;transform:translateY(-60px) rotate(-12deg) scale(1.3)}70%{opacity:1;transform:translateY(4px) rotate(2deg) scale(.96)}100%{opacity:1;transform:rotate(-2deg)}}
+@keyframes ld{0%{left:-8%;bottom:34%;opacity:1}100%{left:78%;bottom:2%;opacity:1}}
+@media (prefers-reduced-motion:reduce){#intro{display:none}}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="plane" viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></symbol></svg>
+<div id="intro" role="dialog" aria-label="Abertura do site">
+<button class="btn s sk" data-close="1">Pular</button>
+<div class="A"><div class="tr"></div><div class="fly"><svg class="pl"><use href="#plane"/></svg></div><p class="yr">2026</p><p class="ph">Vivemos o melhor em Balneário e no Beto Carrero.</p></div>
+<div class="B"><div class="stage"><svg viewBox="0 0 640 360" aria-hidden="true"><rect class="rw" x="30" y="24" width="580" height="312" rx="80" pathLength="1"/><rect class="rc" x="52" y="46" width="536" height="268" rx="62" pathLength="1"/></svg>
+<div class="st s1">🍫<small>Gramado</small></div><div class="st s2">🌲<small>Canela</small></div><div class="st s3">🏖️<small>Floripa</small></div><div class="st s4">🌆<small>Balneário</small></div>
+<div class="ld"><svg class="pl"><use href="#plane"/></svg></div></div>
+<p class="yr">2027</p><p class="ph">Vamos viver o extraordinário. Vamos decidir a viagem de 2027.</p><button class="btn go" data-close="1">Entrar no site</button></div>
+</div>
+<nav id="nav" aria-label="Seções"></nav>
+<main id="view"></main><div id="ts" role="status"></div>
+<footer><svg class="pl"><use href="#plane"/></svg> v2027.0 · build em andamento · os dados ficam salvos neste navegador</footer>
+<script>
+var DEST={
+gramado:{em:"🍫",nome:"Gramado",resumo:"Cidade charmosa da Serra Gaúcha, com chocolate, arquitetura de inspiração alemã e clima frio.",
+ pontos:["Lago Negro","Rua Coberta","Mini Mundo","Snowland","Rua Torta"],locais:["Centro e Rua Coberta para passear e comer","Fábricas e lojas de chocolate","Cafés coloniais"],
+ como:"Voo até Porto Alegre (POA) ou Caxias do Sul (CXJ) e seguir de carro ou transfer.",epoca:"Inverno (frio) e fim de ano, com o Natal Luz."},
+canela:{em:"🌲",nome:"Canela",resumo:"Vizinha de Gramado, mais natureza: cachoeiras, cânions e araucárias.",
+ pontos:["Catedral de Pedra","Parque do Caracol","Vale da Ferradura","Alpen Park","Lago Negro (divisa)"],locais:["Centro com a Catedral de Pedra","Restaurantes de fondue e pinhão","Mirantes dos cânions"],
+ como:"Voo até Porto Alegre (POA) ou Caxias do Sul (CXJ); Canela fica pertinho de Gramado.",epoca:"Inverno e outono para o clima serrano."},
+floripa:{em:"🏖️",nome:"Floripa",resumo:"Ilha com mais de 40 praias, lagoas, dunas, trilhas e frutos do mar.",
+ pontos:["Praia Mole","Lagoa da Conceição","Ponte Hercílio Luz","Dunas da Joaquina","Santo Antônio de Lisboa"],locais:["Lagoa da Conceição para a noite","Ribeirão da Ilha para ostras","Barra da Lagoa"],
+ como:"Voo direto para o Aeroporto de Florianópolis (FLN).",epoca:"Verão para praia, meia-estação para trilhas e sossego."},
+balneario:{em:"🌆",nome:"Balneário",resumo:"Balneário Camboriú interligado a Itajaí e Penha: praia urbana, parques e o Beto Carrero World por perto.",
+ pontos:["Parque Unipraia","FG Big Wheel","Praia Central","Cristo Luz","Praia de Laranjeiras"],locais:["Orla da Praia Central","Avenida Atlântica","Passeios de barco"],
+ como:"Voo para Navegantes (NVT) ou Florianópolis (FLN) e seguir por terra; Itajaí e Penha ficam no mesmo roteiro.",epoca:"Verão, para aproveitar praia e passeios.",
+ sub:[{em:"⚓",nome:"Itajaí",pontos:["Praia Brava","Praia de Cabeçudas","Molhes da Barra","Centro histórico"],locais:"Vizinha de Balneário, com praias mais tranquilas e o porto."},
+ {em:"🎠",nome:"Penha",pontos:["Beto Carrero World","Armação do Itapocorói","Praia Vermelha","Praia do Quilombo"],locais:"Casa do Beto Carrero, o sonho de Carlinhos, além de praias de mar calmo."}]}};
+var KEYS=Object.keys(DEST),TABS=["inicio","decidir"].concat(KEYS,["valores","noticias","roteiro","viagem","memorias"]),S,tab="inicio";
+var P='<svg class="pl"><use href="#plane"/></svg>';
+try{S=JSON.parse(localStorage.getItem("v27"))}catch(e){}
+S=S||{};S.t=S.t||{};S.dep=S.dep||{};S.pick=S.pick||{};S.ex=S.ex||[];S.link=S.link||[];S.vote=S.vote||{};S.pc=S.pc||{};S.day=S.day||{};S.bag=S.bag||{};S.res=S.res||[];S.ph=S.ph||[];S.dy=S.dy||{};S.nm=S.nm||{};S.qz=S.qz||[];S.cust=S.cust||{};S.gx=S.gx||[];S.cf=S.cf||{};S.seen=S.seen||{};S.rt=S.rt||{};S.rd=S.rd||{};S.cu=S.cu||{};S.carta=S.carta||{};S.pb=S.pb||{};S.fd=S.fd||{};S.ch=S.ch||{};S.tr=S.tr||{};S.al=S.al||[];S.vl=S.vl||{};
+function save(){try{localStorage.setItem("v27",JSON.stringify(S))}catch(e){}}
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function days(t){if(!t||!t.ida||!t.volta)return"";var d=Math.round((new Date(t.volta)-new Date(t.ida))/864e5)+1;return d>0?d:""}
+function fd(s){if(!s)return"—";var p=s.split("-");return p[2]+"/"+p[1]+"/"+p[0]}
+function go(t){tab=t;try{history.replaceState(null,"","#"+t)}catch(e){}render();window.scrollTo(0,0)}
+function render(){
+ var n=document.getElementById("nav");
+ n.innerHTML="<b>"+P+" Viagem 2027</b>"+TABS.map(function(t){var d=DEST[t];var l=t=="inicio"?"Início":t=="decidir"?"Decidir":t=="roteiro"?"🗓️ Roteiro":t=="valores"?"💰 Valores":t=="noticias"?"📰 Notícias"+nBadge():t=="viagem"?"Viagem":t=="memorias"?"Memórias":d.em+" "+d.nome;return'<button data-t="'+t+'"'+(t==tab?' aria-current="page"':"")+">"+l+"</button>"}).join("")+'<button data-th="1" aria-label="Alternar tema claro ou escuro">🌓</button>';
+ var v=document.getElementById("view");
+ v.innerHTML=tab=="inicio"?home():tab=="decidir"?decidir():tab=="roteiro"?roteiro():tab=="valores"?valores():tab=="noticias"?noticias():tab=="viagem"?trip():tab=="memorias"?mem():dest(tab);
+ v.focus&&v.setAttribute("tabindex","-1");
+}
+function home(){
+ return'<section class="hero"><h1>Vamos além em 2027 '+P+'</h1><p>O nosso espaço para planejar a próxima viagem: destinos, passagens, passeios e tudo o que a gente quiser colocar na mala.</p></section>'+nextBox()+sprint()+
+ '<section class="sec"><h2>2027: criar o nosso momento</h2><div class="dg">'+
+ KEYS.map(function(k){var d=DEST[k];return'<button class="dc" data-t="'+k+'"><div class="em">'+d.em+"</div><h3>"+d.nome+"</h3><p>"+d.resumo+"</p></button>"}).join("")+"</div></section>"+quiz();
+}
+function dest(k){
+ var d=DEST[k],t=S.t[k]||{},linked=S.link.indexOf(k)>-1,dep=S.dep[k]||[];
+ return'<section class="dh"><div class="em">'+d.em+"</div><div><h1>"+d.nome+" "+P+"</h1><p>"+d.resumo+"</p></div></section>"+
+ '<section class="sec two"><div class="box"><h3>Pontos turísticos</h3><p class="empty" style="margin:0 0 6px">Marque os que quer fazer.</p>'+chk(k,d.pontos.concat(S.cust[k]||[]))+custForm(k)+'</div>'+
+ '<div class="box"><h3>Locais</h3><ul class="l">'+d.locais.map(function(p){return"<li>"+p+"</li>"}).join("")+"</ul></div>"+
+ '<div class="box"><h3>Como chegar</h3><p>'+d.como+'</p><h3 style="margin-top:14px">Melhor época</h3><p>'+d.epoca+"</p></div></section>"+
+ curio(k)+foodBox(k)+sub(d,k)+pcBox(k)+'<section class="sec"><div class="box"><h2 style="font-size:28px">Passagens '+P+(linked?' <span class="tag">vinculada à Viagem</span> <button class="btn s" data-t="viagem">Escolher passeios</button>':"")+"</h2>"+
+ '<div class="row"><div><label for="o">Origem</label><input id="o" data-f="origem" value="'+esc(t.origem)+'"></div><div><label for="c">Companhia</label><input id="c" data-f="cia" value="'+esc(t.cia)+'"></div></div>'+
+ '<div class="row"><div><label for="i">Ida</label><input id="i" type="date" data-f="ida" value="'+esc(t.ida)+'"></div><div><label for="vo">Volta</label><input id="vo" type="date" data-f="volta" value="'+esc(t.volta)+'"></div></div>'+
+ '<div class="row"><div><label for="p">Passagem, por pessoa</label><input id="p" data-f="valor" placeholder="R$" value="'+esc(t.valor)+'"></div><div><label for="h">Hospedagem</label><input id="h" data-f="hosp" value="'+esc(t.hosp)+'"></div></div><div class="row"><div><label for="hv">Valor da hospedagem (total)</label><input id="hv" data-f="hospv" placeholder="R$ 0,00" value="'+esc(t.hospv)+'"></div><p class="empty" style="align-self:end;margin:0">Use vírgula nos centavos. Os valores alimentam o orçamento.</p></div>'+
+ '<p class="empty">'+(days(t)?"Duração: "+days(t)+" dias.":"Informe ida e volta para calcular os dias.")+"</p>"+
+ '<button class="btn" data-link="'+k+'">'+(linked?"Desvincular da Viagem":"Comprei as passagens: vincular à Viagem")+"</button></div></section>"+
+ '<section class="sec"><div class="box"><h2 style="font-size:28px">Depoimentos</h2>'+
+ (dep.length?dep.map(function(x,i){return'<div class="dep"><p style="margin:0">'+esc(x.t)+"</p><small>"+esc(x.a||"Anônimo")+' <button class="btn s" data-rm="'+k+":"+i+'">Remover</button></small></div>'}).join(""):'<p class="empty">Ainda sem depoimentos. Adicione o que quem já foi contou.</p>')+
+ '<label for="dt">Novo depoimento</label><textarea id="dt" rows="3"></textarea><label for="da">Quem contou</label><input id="da"><button class="btn" data-dep="'+k+'">Adicionar depoimento</button></div></section>';
+}
+var ATT={gramado:["Serra","Frio","Parque"],canela:["Serra","Frio","Sossego"],floripa:["Praia","Calor","Sossego"],balneario:["Praia","Calor","Parque"]};
+var QZ=[["Praia ou serra?","Praia","Serra"],["Calor ou frio?","Calor","Frio"],["Sossego ou parque?","Sossego","Parque"]];
+function num(s){return parseFloat(String(s||"").replace(/[^0-9,.-]/g,"").split(".").join("").replace(",","."))||0}
+function brl(n){return"R$ "+n.toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2})}
+function nm(i){return S.nm[i]||["Carlinhos","Soraira"][i]}
+function picks(){var a=[];S.link.forEach(function(k){a=a.concat(S.pick[k]||[])});return a}
+function bagItems(){var b=["Documentos","Carregador","Remédios pessoais"];S.link.forEach(function(k){b=b.concat(ATT[k].indexOf("Frio")>-1?["Casaco","Cachecol","Luvas"]:["Protetor solar","Roupa de banho","Chinelo","Óculos de sol"])});return b.filter(function(x,i){return b.indexOf(x)==i})}
+function total(){var s=0;S.link.forEach(function(k){var t=S.t[k]||{};s+=num(t.valor)*2+num(t.hospv)});S.ex.forEach(function(x){s+=num(x.v)});return s}
+function steps(){var d=[S.link.length>0||KEYS.some(function(k){return S.vote[k]&&S.vote[k][0]}),S.link.length>0,picks().length>0];return'<ol class="sp" style="list-style:none;padding:0">'+["Escolher destino","Comprar passagens","Montar passeios"].map(function(x,i){return'<li style="flex:1;min-width:150px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px">'+(d[i]?"✓ ":(i+1)+". ")+x+"</li>"}).join("")+"</ol>"}
+function quiz(){var h='<section class="sec"><div class="box"><h2 style="font-size:28px">Ajude-me a escolher '+P+"</h2>";
+ QZ.forEach(function(q,i){h+='<p style="margin:12px 0 4px"><b>'+q[0]+"</b></p>"+[1,2].map(function(j){var on=S.qz[i]==q[j];return'<button class="btn s" style="margin-right:8px'+(on?";background:var(--sun);color:#0a1f44":"")+'" data-q="'+i+":"+q[j]+'" aria-pressed="'+on+'">'+q[j]+"</button>"}).join("")});
+ if(S.qz.filter(Boolean).length==3){var sc=KEYS.map(function(k){return[k,ATT[k].filter(function(a){return S.qz.indexOf(a)>-1}).length]}),m=Math.max.apply(null,sc.map(function(x){return x[1]}));
+  h+='<p style="margin-top:16px"><span class="tag">Combina com vocês</span> '+sc.filter(function(x){return x[1]==m}).map(function(x){return'<button class="btn s" data-t="'+x[0]+'">'+DEST[x[0]].em+" "+DEST[x[0]].nome+"</button>"}).join(" ")+"</p>"}
+ return h+"</div></section>"}
+function pcBox(k){var p=S.pc[k]||{};return'<section class="sec two"><div class="box"><h3>Prós</h3><textarea rows="4" aria-label="Prós" data-pc="'+k+':pro" placeholder="O que é bom neste destino?">'+esc(p.pro)+'</textarea></div><div class="box"><h3>Contras</h3><textarea rows="4" aria-label="Contras" data-pc="'+k+':con" placeholder="O que preocupa?">'+esc(p.con)+"</textarea></div></section>"}
+function decidir(){
+ var h='<section class="hero"><h1>Decidir a viagem '+P+"</h1><p>Comparem os destinos, deem notas e vejam qual vence.</p></section>";
+ var rows=[["Perfil",function(k){return ATT[k].join(", ")}],["Melhor época",function(k){return DEST[k].epoca}],["Como chegar",function(k){return DEST[k].como}],["Atrações",function(k){return allP(DEST[k]).length}],["Passagens + hospedagem",function(k){var t=S.t[k]||{},v=num(t.valor)*2+num(t.hospv);return v?brl(v):"—"}]];
+ h+='<section class="box" style="overflow-x:auto"><h2 style="font-size:28px;margin-bottom:12px">Comparador</h2><table style="border-collapse:collapse;width:100%;min-width:640px"><tr><th></th>'+KEYS.map(function(k){return'<th style="text-align:left;padding:8px">'+DEST[k].em+" "+DEST[k].nome+"</th>"}).join("")+"</tr>"+rows.map(function(r){return'<tr><th style="text-align:left;padding:8px;vertical-align:top">'+r[0]+"</th>"+KEYS.map(function(k){return'<td style="padding:8px;border-top:1px solid var(--line);vertical-align:top">'+r[1](k)+"</td>"}).join("")+"</tr>"}).join("")+"</table></section>";
+ var tot={},mx=0;KEYS.forEach(function(k){var v=S.vote[k]||[];tot[k]=(+v[0]||0)+(+v[1]||0);mx=Math.max(mx,tot[k])});
+ h+='<section class="sec"><div class="box"><h2 style="font-size:28px">Votação</h2><p class="empty">Cada um dá uma nota de 1 a 5 para cada destino.</p><div class="row"><div><label for="n0">Amigo 1</label><input id="n0" data-nm="0" value="'+esc(nm(0))+'"></div><div><label for="n1">Amigo 2</label><input id="n1" data-nm="1" value="'+esc(nm(1))+'"></div></div>';
+ KEYS.forEach(function(k){var v=S.vote[k]||[];h+='<div class="row" style="align-items:end;margin-top:12px"><div><b>'+DEST[k].em+" "+DEST[k].nome+"</b>"+(mx>0&&tot[k]==mx?' <span class="tag">favorito</span>':"")+'</div><div class="row">'+[0,1].map(function(i){return'<div><label for="v'+k+i+'">'+esc(nm(i))+'</label><select id="v'+k+i+'" data-vt="'+k+":"+i+'"><option value="">—</option>'+[1,2,3,4,5].map(function(n){return"<option"+(v[i]==n?" selected":"")+">"+n+"</option>"}).join("")+"</select></div>"}).join("")+"</div></div>"});
+ return h+"</div></section>"+roleta()}
+function tripX(){var tot=total(),first="";S.link.forEach(function(k){var i=(S.t[k]||{}).ida;if(i&&(!first||i<first))first=i});
+ var cd=first?Math.ceil((new Date(first+"T00:00:00")-new Date())/864e5):null;
+ var h='<section class="sec two"><div class="box"><h3>Contagem regressiva</h3><h2 style="font-size:44px;margin:8px 0">'+(cd==null?"—":cd>0?cd+" dias":cd==0?"É hoje!":"Já foi")+'</h2><p class="empty">'+(first?"Ida em "+fd(first):"Informe a data de ida na aba do destino.")+'</p></div><div class="box"><h3>Orçamento</h3><h2 style="font-size:36px;margin:8px 0">'+brl(tot)+'</h2><p class="empty" style="margin:0">Por pessoa (2): '+brl(tot/2)+'. Passagens, hospedagem e extras.</p></div></section>';
+ var pk=picks(),N=Math.min(14,Math.max.apply(null,[3].concat(S.link.map(function(k){return days(S.t[k]||{})||0}))));
+ h+='<section class="box" style="margin-top:20px"><h3>Roteiro</h3><p>'+pk.filter(function(p){return S.day[p]}).length+" de "+pk.length+' passeios já têm dia.</p><button class="btn s" data-t="roteiro">Abrir roteiro dia a dia</button></section>';
+ h+='<section class="box" style="margin-top:20px"><h3>Lista de mala</h3>'+bagItems().map(function(b){return'<label class="chk"><input type="checkbox" data-bag="'+esc(b)+'"'+(S.bag[b]?" checked":"")+">"+b+"</label>"}).join("")+"</section>";
+ h+='<section class="box" style="margin-top:20px"><h3>Reservas e documentos</h3>'+(S.res.length?S.res.map(function(r,i){return'<div class="row" style="align-items:center;margin:6px 0"><span>'+esc(r.n)+'</span><div><select aria-label="Status de '+esc(r.n)+'" data-rs="'+i+'"><option'+(r.s=="A comprar"?" selected":"")+">A comprar</option><option"+(r.s=="Comprado"?" selected":"")+'>Comprado</option></select> <button class="btn s" data-rr="'+i+'">Remover</button></div></div>'}).join(""):'<p class="empty">Ex.: voo, hotel, ingressos, documentos.</p>')+'<label for="rn">Novo item</label><input id="rn"><button class="btn" data-rn="1">Adicionar item</button></section>';
+ h+='<section class="box" style="margin-top:20px"><h3>Mapa</h3>'+(pk.length?'<ul class="l">'+S.link.map(function(k){return(S.pick[k]||[]).map(function(p){return'<li><a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p+", "+DEST[k].nome)+'" target="_blank" rel="noopener">'+esc(p)+"</a></li>"}).join("")}).join("")+"</ul>":'<p class="empty">Os passeios marcados aparecem aqui com link para o mapa.</p>')+"</section>";
+ h+=cofreBox()+gastosBox()+resumoBox();return h}
+function selos(){var b=bagItems(),pk=picks(),L=[["Passagem comprada",S.link.length>0],["Destino votado",KEYS.every(function(k){return S.vote[k]&&S.vote[k][0]&&S.vote[k][1]})],["Roteiro completo",pk.length>0&&pk.every(function(p){return S.day[p]})],["Mala pronta",S.link.length>0&&b.every(function(x){return S.bag[x]})],["Orçamento definido",total()>0],["Primeira foto",S.ph.length>0],["Carta lacrada",!!(S.carta&&S.carta.sel)],["Desafiantes",chList().filter(function(x){return x[2]}).length>=5]];
+ return'<section class="box" style="margin-top:20px"><h2 style="font-size:28px;margin-bottom:12px">Selos</h2><div class="sp">'+L.map(function(l){return'<div style="opacity:'+(l[1]?1:.5)+'">'+(l[1]?"🏅 ":"🔒 ")+l[0]+"</div>"}).join("")+"</div></section>"}
+function mem(){var n=3;S.link.forEach(function(k){n=Math.max(n,days(S.t[k]||{})||0)});n=Math.min(n,14);
+ return'<section class="hero"><h1>Memórias '+P+'</h1><p>Fotos, diário e selos da viagem.</p></section><section class="box"><h2 style="font-size:28px">Galeria</h2><label for="ph">Adicionar fotos</label><input id="ph" type="file" accept="image/*" multiple data-ph="1"><div class="sp">'+(S.ph.length?S.ph.map(function(x){return'<img src="'+x+'" alt="Foto da viagem" style="width:150px;height:150px;object-fit:cover;border-radius:12px">'}).join(""):'<p class="empty">Adicione as primeiras fotos.</p>')+'</div></section><section class="box" style="margin-top:20px"><h2 style="font-size:28px">Diário da viagem</h2>'+Array.from({length:n},function(_,i){return'<label for="dy'+i+'">Dia '+(i+1)+'</label><textarea id="dy'+i+'" rows="2" data-dy="'+i+'">'+esc(S.dy[i])+"</textarea>"}).join("")+"</section>"+cartaBox()+desafiosBox()+backup()+selos()}
+function readPh(fs){Array.from(fs).slice(0,6).forEach(function(f){var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var c=document.createElement("canvas"),k=Math.min(1,480/Math.max(im.width,im.height));c.width=im.width*k;c.height=im.height*k;c.getContext("2d").drawImage(im,0,0,c.width,c.height);if(S.ph.length<12){S.ph.push(c.toDataURL("image/jpeg",.7));save();render()}};im.src=r.result};r.readAsDataURL(f)})}
+
+function chk(k,l){return l.map(function(p){return'<label class="chk"><input type="checkbox" data-pk="'+k+'" value="'+esc(p)+'"'+((S.pick[k]||[]).indexOf(p)>-1?" checked":"")+">"+esc(p)+"</label>"}).join("")}
+function custForm(k){return'<label for="cp">Passeio próprio</label><div class="row"><input id="cp" placeholder="Nome do passeio"><button class="btn s" style="margin-top:0" data-cp="'+k+'">Adicionar</button></div>'}
+function nextBox(){var t,x,L=S.link,pk=picks(),b=bagItems(),f=null,mx=0;
+ KEYS.forEach(function(k){var v=S.vote[k]||[],s=(+v[0]||0)+(+v[1]||0);if(s>mx){mx=s;f=k}});
+ var nd=L.filter(function(k){var d=S.t[k]||{};return!d.ida||!d.volta});
+ if(!L.length){x=f?"O favorito é "+DEST[f].nome+". Abram o destino e vinculem as passagens.":"Comparem os destinos e votem no favorito.";t=f||"decidir"}
+ else if(nd.length){x="Preencham as datas de ida e volta de "+DEST[nd[0]].nome+".";t=nd[0]}
+ else if(!pk.length){x="Marquem os passeios que querem fazer em "+DEST[L[0]].nome+".";t=L[0]}
+ else if(pk.some(function(p){return!S.day[p]})){x="Distribuam os passeios pelos dias no Roteiro.";t="roteiro"}
+ else if(!b.every(function(y){return S.bag[y]})){x="Confiram a lista de mala.";t="viagem"}
+ else{x="Tudo pronto! Registrem as memórias da viagem.";t="memorias"}
+ return'<section class="box" style="margin:20px 0;border-color:var(--sun)"><b>Próximo passo:</b> '+x+' <button class="btn s" data-t="'+t+'">Ir agora</button> <button class="btn" data-pdf="1">Gerar relatório em PDF</button> <button class="btn s" data-pres="1">Modo apresentação</button></section>'}
+function resumo(){var l=["Viagem 2027"];S.link.forEach(function(k){var t=S.t[k]||{},d=DEST[k],pk=S.pick[k]||[];l.push("",d.em+" "+d.nome,"Ida: "+fd(t.ida)+" | Volta: "+fd(t.volta)+(days(t)?" ("+days(t)+" dias)":""),"Passagem: "+(t.cia||"—")+" "+(t.valor||""),"Hospedagem: "+(t.hosp||"—"));if(pk.length)l.push("Passeios: "+pk.map(function(p){return S.day[p]?p+" (dia "+S.day[p]+")":p}).join(", "))});
+ if(S.ex.length)l.push("","Extras: "+S.ex.map(function(x){return x.k+": "+x.n+(x.v?" ("+x.v+")":"")}).join(", "));
+ l.push("","Total: "+brl(total())+" | Por pessoa: "+brl(total()/2));return l.join("\n")}
+function resumoBox(){return'<section class="box" style="margin-top:20px"><h3>Resumo para enviar</h3><label for="rs">Texto pronto para mandar no WhatsApp</label><textarea id="rs" rows="8" readonly>'+esc(resumo())+'</textarea><button class="btn" data-copy="1">Copiar resumo</button></section>'}
+function backup(){var c=JSON.parse(JSON.stringify(S));c.ph=[];delete c.carta;return'<section class="box" style="margin-top:20px"><h2 style="font-size:28px">Levar para outro aparelho</h2><p class="empty">Copie o código abaixo e cole no outro aparelho, no mesmo campo. As fotos não vão junto.</p><label for="bk">Código dos dados</label><textarea id="bk" rows="4">'+esc(JSON.stringify(c))+'</textarea><button class="btn" data-restore="1">Restaurar a partir do código</button></section>'}
+function toast(m){var t=document.getElementById("ts");t.textContent=m;t.style.opacity=1;clearTimeout(toast.i);toast.i=setTimeout(function(){t.style.opacity=0},3500)}
+function T(s){return String(s==null?"":s).replace(/[^\u0000-\u00ff]/g,"").trim()}
+function cofre(){S.cf=S.cf||{};var tot=total(),sv=num(S.cf.a)+num(S.cf.b),falta=Math.max(0,tot-sv),first="";S.link.forEach(function(k){var i=(S.t[k]||{}).ida;if(i&&(!first||i<first))first=i});var mo=first?Math.max(1,Math.ceil((new Date(first+"T00:00:00")-new Date())/2.63e9)):0;return{tot:tot,sv:sv,falta:falta,pct:tot?Math.min(100,Math.round(sv/tot*100)):0,mo:mo,pm:mo?falta/mo/2:0}}
+function cofreMsg(c){return c.tot==0?"Informe o orçamento para calcular.":c.falta==0?"Meta batida!":c.mo?"Guardando "+brl(c.pm)+" por mês cada um, vocês chegam lá em "+c.mo+(c.mo>1?" meses.":" mês."):"Informe a data de ida para calcular o valor mensal."}
+function cofreBox(){var c=cofre();return'<section class="box" style="margin-top:20px"><h3>Cofrinho da viagem</h3><div class="row"><div><label for="ca">Guardado por '+esc(nm(0))+'</label><input id="ca" data-cf="a" placeholder="R$ 0,00" value="'+esc(S.cf.a)+'"></div><div><label for="cb">Guardado por '+esc(nm(1))+'</label><input id="cb" data-cf="b" placeholder="R$ 0,00" value="'+esc(S.cf.b)+'"></div></div><div role="progressbar" aria-label="Progresso da meta" aria-valuenow="'+c.pct+'" aria-valuemin="0" aria-valuemax="100" style="height:14px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:14px"><div style="width:'+c.pct+'%;height:100%;background:var(--sun)"></div></div><p style="margin:8px 0 0">'+c.pct+'% da meta ('+brl(c.tot)+'). Faltam <b>'+brl(c.falta)+'</b>.</p><p class="empty" style="margin:4px 0 0">'+cofreMsg(c)+'</p></section>'}
+function gSaldo(){S.gx=S.gx||[];var a=[0,0];S.gx.forEach(function(g){a[g.w]+=num(g.v)});var t=a[0]+a[1],df=a[0]-t/2,m=!t?"Registre os gastos para ver quem deve a quem.":Math.abs(df)<.005?"Estão quites.":df>0?nm(1)+" deve "+brl(df)+" a "+nm(0)+".":nm(0)+" deve "+brl(-df)+" a "+nm(1)+".";return{a:a,t:t,m:m}}
+function gastosBox(){var g=gSaldo();return'<section class="box" style="margin-top:20px"><h3>Divisão de gastos</h3><p class="empty">Anotem quem pagou cada coisa. O site divide igualmente e mostra quem deve a quem.</p>'+S.gx.map(function(x,i){return'<div class="row" style="align-items:center;margin:6px 0"><span>'+esc(x.d)+' <small>('+esc(nm(x.w))+')</small></span><div><b>'+esc(x.v)+'</b> <button class="btn s" data-gr="'+i+'">Remover</button></div></div>'}).join("")+'<div class="row"><div><label for="gd">O que foi</label><input id="gd"></div><div><label for="gv">Valor</label><input id="gv" placeholder="R$ 0,00"></div></div><label for="gw">Quem pagou</label><select id="gw"><option value="0">'+esc(nm(0))+'</option><option value="1">'+esc(nm(1))+'</option></select><button class="btn" data-gx="1">Adicionar gasto</button><p style="margin:14px 0 0"><b>'+g.m+'</b></p></section>'}
+function roleta(){return'<section class="sec"><div class="box" style="text-align:center"><h2 style="font-size:28px">Deixa a sorte decidir</h2><p class="empty">Em caso de empate, gire a roleta.</p><div id="rl" style="font-size:72px;line-height:1.2" aria-live="polite">🎲</div><button class="btn" data-spin="1">Girar a roleta</button><p id="rr" style="margin:12px 0 0"></p></div></section>'}
+async function pdf(){
+ var J=window.jspdf&&window.jspdf.jsPDF,dl=null;
+ try{dl=window.claude&&await window.claude.use("downloads")}catch(e){}
+ if(!J){toast("O gerador de PDF não carregou. Verifique a conexão e tente de novo.");return}
+ if(!dl){toast("O download só funciona no link publicado do site.");return}
+ var d=new J({unit:"pt",format:"a4"}),W=595,H=842,M=40,y=0,pg=1;
+ function band(){d.setFillColor(10,31,68);d.rect(0,0,W,pg==1?100:44,"F");d.setFillColor(201,165,76);d.rect(0,pg==1?100:44,W,3,"F")}
+ function np(){d.addPage();pg++;band();y=76}
+ function ck(h){if(y+h>H-50)np()}
+ function H1(t){ck(44);y+=6;d.setFont("helvetica","bold");d.setFontSize(14);d.setTextColor(10,31,68);d.text(T(t),M,y);d.setDrawColor(201,165,76);d.setLineWidth(2);d.line(M,y+5,M+54,y+5);y+=24}
+ function L(t,b){d.setFont("helvetica",b?"bold":"normal");d.setFontSize(10.5);d.setTextColor(40,50,75);d.splitTextToSize(T(t),W-2*M).forEach(function(x){ck(15);d.text(x,M,y);y+=15})}
+ band();d.setTextColor(201,165,76);d.setFont("helvetica","bold");d.setFontSize(30);d.text("Viagem 2027",M,56);d.setTextColor(243,234,210);d.setFontSize(11);d.setFont("helvetica","normal");d.text("Relatorio de planejamento - "+new Date().toLocaleDateString("pt-BR"),M,82);y=130;
+ var tot=total(),c=cofre(),g=gSaldo();
+ H1("Resumo");L("Destinos vinculados: "+(S.link.length?S.link.map(function(k){return DEST[k].nome}).join(", "):"nenhum ainda"));L("Orçamento total: "+brl(tot)+"   |   por pessoa: "+brl(tot/2),1);
+ S.link.forEach(function(k){var t=S.t[k]||{},pk=S.pick[k]||[],pc=S.pc[k]||{};H1(DEST[k].nome);L("Ida: "+fd(t.ida)+"   Volta: "+fd(t.volta)+(days(t)?"   ("+days(t)+" dias)":""));L("Origem: "+(t.origem||"-")+"   Companhia: "+(t.cia||"-")+"   Passagem por pessoa: "+(t.valor||"-"));L("Hospedagem: "+(t.hosp||"-")+"   Valor: "+(t.hospv||"-"));
+  if(pk.length){L("Passeios:",1);pk.forEach(function(p){L("   - "+p+(S.day[p]?"  (dia "+S.day[p]+")":""))})}
+  if(pc.pro)L("Pros: "+pc.pro);if(pc.con)L("Contras: "+pc.con)});
+ H1("Roteiro dia a dia");for(var ri=0;ri<nDays();ri++){var rit=S.rt[ri]||[];if(rit.length){L(dayLabel(ri),1);rit.forEach(function(x){L("   - "+(x.t?x.t+"  ":"")+x.n)})}}H1("Valores estimados (dois amigos)");KEYS.forEach(function(k){var c2=vcalc(k);L(DEST[k].nome+": hotel "+brl(c2.th)+"   |   Airbnb "+brl(c2.ta))});H1("Votação dos destinos");KEYS.forEach(function(k){var v=S.vote[k]||[];L(DEST[k].nome+":   "+nm(0)+" "+(v[0]||"-")+"   |   "+nm(1)+" "+(v[1]||"-"))});
+ if(S.ex.length){H1("Extras");S.ex.forEach(function(x){L("- "+x.k+": "+x.n+(x.v?" ("+x.v+")":""))})}
+ H1("Divisão de gastos");if(S.gx.length)S.gx.forEach(function(x){L("- "+x.d+": "+x.v+" (pago por "+nm(x.w)+")")});L(g.m,1);
+ H1("Cofrinho");L("Guardado: "+brl(c.sv)+" de "+brl(c.tot)+" ("+c.pct+"%)");L(cofreMsg(c),1);
+ if(S.res.length){H1("Reservas e documentos");S.res.forEach(function(r){L("["+(r.s=="Comprado"?"x":" ")+"] "+r.n)})}
+ var b=bagItems();if(S.link.length){H1("Lista de mala");b.forEach(function(x){L("["+(S.bag[x]?"x":" ")+"] "+x)})}
+ for(var i=1;i<=pg;i++){d.setPage(i);d.setFont("helvetica","normal");d.setFontSize(9);d.setTextColor(120,130,150);d.text("Viagem 2027 - pagina "+i+" de "+pg,W/2,H-24,{align:"center"})}
+ try{await dl.save({filename:"viagem-2027.pdf",data:d.output("blob")});toast("Relatório salvo.")}catch(e){if(!e||e.code!="declined")toast("Não foi possível salvar o PDF.")}
+}
+var QN={gramado:"Gramado RS",canela:"Canela RS",floripa:"Florianópolis",balneario:"Balneário Camboriú"};
+var NEWS=[
+{id:"g1",k:"gramado",c:"Pontos turísticos",t:"O Natal Luz 2026, 41ª edição, vai de 22/10/2026 a 17/01/2027, com 88 dias de programação e expectativa de cerca de 2 milhões de visitantes.",s:"Mercado & Eventos",d:"out/2026",u:"https://www.mercadoeeventos.com.br/?p=728166"},
+{id:"g2",k:"gramado",c:"Locais",t:"A rede GAV inaugurou o resort Gran Valley, com 197 apartamentos e cerca de R$ 200 milhões investidos. Mais dois empreendimentos estão a caminho.",s:"DGABC",d:"14/08/2026",u:"https://www.dgabc.com.br/Noticia/4341238/gav-investe-r%24-200-mi-em-gramado-com-resort-de-197-apartamentos"},
+{id:"g3",k:"gramado",c:"Demanda",t:"Gramado ficou em 3º entre os destinos mais vendidos do Brasil no 1º semestre de 2026, segundo a Braztoa. Com procura alta, vale reservar com antecedência.",s:"Diário do Comércio",d:"04/09/2026",u:"https://diariodocomercio.com.br/mix/?p=57813"},
+{id:"c1",k:"canela",c:"Locais",t:"Sem notícia nova e confiável de 2026 na busca de hoje. Canela fica a cerca de 8 km de Gramado e aproveita a movimentação do Natal Luz; confira a programação própria da cidade.",s:"Busca de 17/10/2026",d:"17/10/2026"},
+{id:"f1",k:"floripa",c:"Passagens",t:"O aeroporto Hercílio Luz foi apontado pela AirHelp como o melhor do mundo em conexões e passou de 5 milhões de passageiros em 2025.",s:"Diário do Comércio",d:"01/06/2026",u:"https://diariodocomercio.com.br/mix/?p=47090"},
+{id:"f2",k:"floripa",c:"Locais",t:"A prefeitura propôs isentar IPTU e ISS de novos empreendimentos turísticos no sul da Ilha, perto do aeroporto, para atrair hotéis.",s:"Portal Tela",d:"01/05/2026",u:"https://www.portaltela.com/economia/2026/05/01/florianopolis-zerara-impostos-para-atrair-empreendimentos/"},
+{id:"b1",k:"balneario",c:"Pontos turísticos",t:"O Beto Carrero World, em Penha, se despediu da montanha-russa Star Mountain, de 1994, que será substituída por novas atrações.",s:"Panrotas",d:"16/08/2026",u:"https://panrotas.com.br/tudo-sobre/santa-catarina"},
+{id:"b2",k:"balneario",c:"Pontos turísticos",t:"As obras do Oceanic Park, parque temático com mais de R$ 50 milhões de investimento, começaram em Balneário Camboriú.",s:"Panrotas",d:"17/03/2026",u:"https://www.panrotas.com.br/tudo-sobre/catarina/pagina-2"},
+{id:"b3",k:"balneario",c:"Locais",t:"O hotel boutique Liwe Hotels foi inaugurado em Penha, perto do Beto Carrero World, com poucas acomodações.",s:"Panrotas",d:"19/01/2026",u:"https://www.panrotas.com.br/tudo-sobre/catarina/pagina-2"}];
+function gn(q){return"https://news.google.com/search?q="+encodeURIComponent(q)+"&hl=pt-BR&gl=BR&ceid=BR%3Apt-419"}
+function nBadge(){var n=NEWS.filter(function(x){return!S.seen[x.id]}).length;return n?' <span class="tag" style="padding:0 8px">'+n+"</span>":""}
+function noticias(){var fresh={};NEWS.forEach(function(x){if(!S.seen[x.id])fresh[x.id]=1;S.seen[x.id]=1});save();
+ var h='<section class="hero"><h1>Notícias '+P+'</h1><p>Novidades sobre passagens, locais e pontos turísticos de cada destino. Resumo de 17/10/2026. Os botões abrem as notícias mais recentes ao vivo.</p></section>';
+ KEYS.forEach(function(k){var n=QN[k],it=NEWS.filter(function(x){return x.k==k});
+  h+='<section class="box" style="margin-bottom:20px"><h2 style="font-size:28px;margin-bottom:10px">'+DEST[k].em+" "+DEST[k].nome+"</h2>"+it.map(function(x){return'<div class="dep"><p style="margin:0">'+(fresh[x.id]?'<span class="tag">novo</span> ':"")+x.t+"</p><small>"+x.c+" - "+x.s+" - "+x.d+(x.u?' - <a href="'+x.u+'" target="_blank" rel="noopener">Ler a fonte</a>':"")+"</small></div>"}).join("")+
+  '<div class="sp">'+[["Passagens","passagens aéreas "+n],["Locais","hotéis hospedagem "+n+" novidades"],["Pontos turísticos",n+" pontos turísticos novidades"]].map(function(c){return'<a class="btn s" style="text-decoration:none;display:inline-block;margin-top:0" href="'+gn(c[1])+'" target="_blank" rel="noopener">'+c[0]+" ao vivo</a>"}).join("")+'<a class="btn s" style="text-decoration:none;display:inline-block;margin-top:0" href="https://www.google.com/travel/flights?q='+encodeURIComponent("Voos para "+n)+'" target="_blank" rel="noopener">Ver voos</a></div></section>'});
+ h+='<section class="box"><h2 style="font-size:28px">Meus alertas</h2><p class="empty">Anotem o que querem acompanhar, como queda de preço ou data de abertura.</p>'+S.al.map(function(a,i){return'<div class="row" style="align-items:center;margin:6px 0"><span><b>'+esc(DEST[a.k].nome)+":</b> "+esc(a.t)+'</span><div><button class="btn s" data-ar="'+i+'">Remover</button></div></div>'}).join("")+'<div class="row"><div><label for="ak">Destino</label><select id="ak">'+KEYS.map(function(k){return'<option value="'+k+'">'+DEST[k].nome+"</option>"}).join("")+'</select></div><div><label for="at">O que acompanhar</label><input id="at"></div></div><button class="btn" data-al="1">Adicionar alerta</button></section>';
+ return h}
+var VL0={gramado:{h:450,a:380,f:180,p:400,tr:80},canela:{h:380,a:320,f:160,p:350,tr:80},floripa:{h:420,a:350,f:150,p:250,tr:100},balneario:{h:450,a:380,f:170,p:450,tr:90}};
+function vcalc(k){S.vl=S.vl||{};var v=S.vl[k]||{},o=VL0[k],t=S.t[k]||{},g=function(f){return v[f]!==undefined&&v[f]!==""?num(v[f]):o[f]},dias=days(t)||0,nn=v.n!==undefined&&v.n!==""?num(v.n):(dias?dias-1:4),dd=nn+1;
+ var pass=(num(t.valor)||num(v.ps))*2,comer=g("f")*dd*2,pas=g("p")*2,trl=g("tr")*dd,hot=g("h")*nn,air=g("a")*nn;
+ return{nn:nn,dd:dd,pass:pass,comer:comer,pas:pas,trl:trl,hot:hot,air:air,th:pass+comer+pas+trl+hot,ta:pass+comer+pas+trl+air}}
+function vbar(l,v,m){return'<div style="display:grid;grid-template-columns:70px 1fr auto;gap:10px;align-items:center;margin-top:6px"><span>'+l+'</span><div style="height:14px;background:var(--line);border-radius:99px;overflow:hidden"><div style="width:'+Math.round(v/(m||1)*100)+'%;height:100%;background:'+(l=="Hotel"?"var(--sea)":"var(--sun)")+'"></div></div><b>'+brl(v)+"</b></div>"}
+function vf(k,f,l,v,ph){return'<div><label for="vl'+k+f+'">'+l+'</label><input id="vl'+k+f+'" inputmode="decimal" data-vl="'+k+":"+f+'" value="'+esc(v)+'"'+(ph?' placeholder="'+ph+'"':"")+"></div>"}
+function valores(){S.vl=S.vl||{};
+ var cs=KEYS.map(function(k){return[k,vcalc(k)]}),mx=Math.max.apply(null,cs.map(function(x){return Math.max(x[1].th,x[1].ta)})),low=cs.slice().sort(function(a,b){return Math.min(a[1].th,a[1].ta)-Math.min(b[1].th,b[1].ta)})[0][0];
+ var h='<section class="hero"><h1>Valores '+P+'</h1><p>Estimativa para os dois amigos em cada destino, comparando hotel e Airbnb. Os números iniciais são só ponto de partida: troquem pelos preços reais.</p></section><section class="box"><h2 style="font-size:28px;margin-bottom:12px">Comparativo</h2>'+cs.map(function(x){var k=x[0],c=x[1];return'<div style="margin:14px 0"><b>'+DEST[k].em+" "+DEST[k].nome+(k==low?' <span class="tag">mais em conta</span>':"")+"</b>"+vbar("Hotel",c.th,mx)+vbar("Airbnb",c.ta,mx)+"</div>"}).join("")+"</section>";
+ KEYS.forEach(function(k){var c=vcalc(k),v=S.vl[k]||{},o=VL0[k],n=QN[k],e=encodeURIComponent(n),dv=function(f){return v[f]!==undefined?v[f]:o[f]};
+  h+='<section class="box" style="margin-top:20px"><h2 style="font-size:28px;margin-bottom:6px">'+DEST[k].em+" "+DEST[k].nome+'</h2><p class="empty" style="margin:0 0 8px">Dois amigos, '+c.nn+" noites ("+c.dd+' dias). Passagem usa o valor da aba do destino quando preenchido.</p><div class="two" style="gap:4px 16px">'+
+  vf(k,"n","Noites",c.nn)+vf(k,"h","Diária do hotel (quarto)",dv("h"))+vf(k,"a","Diária do Airbnb",dv("a"))+vf(k,"f","Alimentação por dia, por pessoa",dv("f"))+vf(k,"p","Passeios por pessoa",dv("p"))+vf(k,"tr","Transporte local por dia",dv("tr"))+vf(k,"ps","Passagem por pessoa",v.ps||"","usa a aba do destino")+
+  '</div><div class="sp"><div><small>Passagens</small>'+brl(c.pass)+"</div><div><small>Alimentação</small>"+brl(c.comer)+"</div><div><small>Passeios</small>"+brl(c.pas)+"</div><div><small>Transporte</small>"+brl(c.trl)+'</div></div><div class="sp"><div><small>Total com hotel</small><b>'+brl(c.th)+"</b></div><div><small>Total com Airbnb</small><b>"+brl(c.ta)+"</b></div><div><small>Diferença</small>"+(Math.abs(c.th-c.ta)<.5?"igual":(c.th>c.ta?"Airbnb":"Hotel")+" economiza "+brl(Math.abs(c.th-c.ta)))+'</div></div><div class="sp">'+
+  [["Airbnb","https://www.airbnb.com.br/s/"+e+"/homes"],["Booking","https://www.booking.com/searchresults.pt-br.html?ss="+e],["Hotéis","https://www.google.com/travel/search?q="+encodeURIComponent("hotéis em "+n)],["Voos","https://www.google.com/travel/flights?q="+encodeURIComponent("Voos para "+n)]].map(function(l){return'<a class="btn s" style="text-decoration:none;display:inline-block;margin-top:0" href="'+l[1]+'" target="_blank" rel="noopener">'+l[0]+"</a>"}).join("")+"</div></section>"});
+ return h}
+var CUR={
+gramado:["Gramado fica na Serra Gaúcha e é chamada de “Suíça Brasileira” pelo clima europeu e pela arquitetura de inspiração alemã.","O Natal Luz é reconhecido pelo Guinness como o mais longo festival natalino do mundo. Em 2026 são 88 dias, de 22/10 a 17/01/2027.","Gramado e Canela formam a chamada Região das Hortênsias.","Além do Natal Luz, a cidade tem o Festival de Cinema de Gramado, o ChocoPáscoa e a Vindima.","Em 2026, Gramado foi eleita o destino turístico gaúcho mais lembrado no prêmio Marcas de Quem Decide, à frente de Bento Gonçalves e Torres."],
+canela:["A Cascata do Caracol despenca 131 metros em queda livre, dentro do Parque do Caracol.","A Catedral de Pedra, de estilo gótico, tem cerca de 65 metros de altura e é um dos cartões-postais da cidade.","Canela é conhecida como a “Capital Nacional dos Parques Temáticos”.","O Alpen Park, inaugurado em 2003, reúne arvorismo, tirolesa, trenó sobre trilho e cinema 4D.","A cidade fica a cerca de 123 km de Porto Alegre e a cerca de 8 km de Gramado."],
+floripa:["O aeroporto Hercílio Luz foi apontado pela AirHelp como o melhor do mundo em conexões e passou de 5 milhões de passageiros em 2025.","Floripa é chamada de “Ilha da Magia” e tem dezenas de praias, das mais agitadas às quase desertas.","A Ponte Hercílio Luz, uma ponte pênsil, é o grande símbolo da cidade.","O Ribeirão da Ilha é conhecido pelas ostras cultivadas na região.","As Dunas da Joaquina são famosas pelo sandboard."],
+balneario:["O Parque Unipraias liga praias por bondinhos e ganhou a atração Super Gyro Tower em 2025.","O Beto Carrero World fica em Penha, a cerca de 30 minutos de carro de Balneário, e recebe cerca de 2,7 milhões de visitantes por ano.","O Beto Carrero planeja um investimento de R$ 2 bilhões, com hotéis próprios e novas áreas temáticas, entre elas uma da Galinha Pintadinha.","Itajaí é porto de embarque de cruzeiros, e Balneário Camboriú também foi porto de embarque da MSC na temporada 2025/2026.","Balneário Camboriú é famosa pelo skyline de prédios altos à beira-mar."]};
+var PROX={
+gramado:[{n:"Canela",d:"a cerca de 8 km, com Parque do Caracol e Catedral de Pedra"},{n:"Nova Petrópolis",d:"vizinha de clima europeu"},{n:"Caxias do Sul",d:"maior cidade da Serra, com aeroporto (CXJ)"},{n:"Bento Gonçalves",d:"região de vinícolas"}],
+canela:[{n:"Gramado",d:"a cerca de 8 km"},{n:"Nova Petrópolis",d:"vizinha de clima europeu"},{n:"Cambará do Sul",d:"região dos cânions (confirme o tempo de viagem)"},{n:"Caxias do Sul",d:"maior cidade da Serra, com aeroporto (CXJ)"}],
+floripa:[{n:"Santo Amaro da Imperatriz",d:"águas termais"},{n:"Palhoça",d:"vizinha, ao sul da Ilha"},{n:"Garopaba",d:"praias ao sul, como a Praia do Rosa"},{n:"Balneário Camboriú",d:"cerca de 1h30 ao norte"}],
+balneario:[{n:"Balneário Piçarras",d:"praia com certificação Bandeira Azul"},{n:"Bombinhas",d:"praias de águas claras"},{n:"Navegantes",d:"onde fica o aeroporto NVT"},{n:"Brusque",d:"polo de compras"},{n:"Pomerode",d:"cidade de tradição alemã"}]};
+function curio(k){var c=CUR[k],i=(S.cu[k]||0)%c.length;return'<section class="sec two"><div class="box"><h3>Você sabia?</h3><p style="font-size:19px;min-height:84px" aria-live="polite">'+c[i]+'</p><p class="empty" style="margin:0">'+(i+1)+" de "+c.length+'</p><button class="btn s" data-cu="'+k+'">Outra curiosidade</button></div><div class="box"><h3>Cidades próximas</h3><ul class="l">'+PROX[k].map(function(x){return"<li><b>"+x.n+"</b>: "+x.d+"</li>"}).join("")+'</ul><p class="empty" style="margin-bottom:0">No Roteiro, cada uma pode entrar como bate-volta.</p></div></section>'}
+function tripSpan(){var a="",b="";S.link.forEach(function(k){var t=S.t[k]||{};if(t.ida&&(!a||t.ida<a))a=t.ida;if(t.volta&&(!b||t.volta>b))b=t.volta});return{a:a,b:b}}
+function nDays(){var sp=tripSpan(),n=0;if(sp.a&&sp.b)n=Math.round((new Date(sp.b)-new Date(sp.a))/864e5)+1;if(!(n>0))n=+S.rtn||5;return Math.min(n,21)}
+function dayLabel(i){var sp=tripSpan();if(!sp.a)return"Dia "+(i+1);var d=new Date(sp.a+"T12:00:00");d.setDate(d.getDate()+i);return"Dia "+(i+1)+" - "+d.toLocaleDateString("pt-BR",{weekday:"short",day:"2-digit",month:"2-digit"})}
+function rtHas(n){var f=false;Object.keys(S.rt).forEach(function(i){(S.rt[i]||[]).forEach(function(x){if(x.n==n)f=true})});return f}
+function rtOpts(k){return'<optgroup label="Atrações">'+allP(DEST[k]).concat(S.cust[k]||[]).map(function(p){return"<option>"+esc(p)+"</option>"}).join("")+'</optgroup><optgroup label="Bate-volta">'+PROX[k].map(function(x){return"<option>Bate-volta: "+esc(x.n)+"</option>"}).join("")+"</optgroup>"}
+function roteiro(){S.rt=S.rt||{};S.rd=S.rd||{};
+ var N=nDays(),sp=tripSpan(),L=S.link.length?S.link:KEYS,pk=picks(),placed=pk.filter(rtHas).length;
+ var h='<section class="hero"><h1>Roteiro '+P+"</h1><p>"+(sp.a&&sp.b?"Os dias vêm das passagens vinculadas: "+fd(sp.a)+" a "+fd(sp.b)+" ("+N+" dias). ":"Vincule as passagens para trazer as datas, ou informe a quantidade de dias abaixo. ")+"Escolham a atração de cada destino e distribuam pelos dias.</p></section>";
+ h+='<section class="box"><div class="row">'+(sp.a&&sp.b?"":'<div><label for="rtn">Quantos dias?</label><input id="rtn" type="number" min="1" max="21" data-rtn="1" value="'+N+'"></div>')+'<div><p style="margin:0"><b>'+placed+" de "+pk.length+"</b> passeios marcados já estão no roteiro.</p></div></div>"+'<button class="btn" data-rauto="1">Distribuir passeios marcados pelos dias</button> <button class="btn s" data-rclr="1">Limpar roteiro</button></section>';
+ h+=transporte();
+ for(var i=0;i<N;i++){var k=S.rd[i]||S.link[0]||"gramado",it=S.rt[i]||[];
+  h+='<section class="box" style="margin-top:16px"><h2 style="font-size:24px;margin-bottom:8px">'+dayLabel(i)+'</h2><label for="rk'+i+'">Destino do dia</label><select id="rk'+i+'" data-rd="'+i+'">'+L.map(function(x){return'<option value="'+x+'"'+(x==k?" selected":"")+">"+DEST[x].em+" "+DEST[x].nome+"</option>"}).join("")+"</select>"+
+  (it.length?it.map(function(x,j){var q=x.n.replace("Bate-volta: ","")+(x.n.indexOf("Bate-volta")==0?"":", "+DEST[k].nome);return'<div class="row" style="align-items:center;margin:6px 0"><span>'+(x.t?"🕘 "+esc(x.t)+" ":"")+'<a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q)+'" target="_blank" rel="noopener">'+esc(x.n)+'</a></span><div><button class="btn s" data-rx="'+i+":"+j+'">Remover</button></div></div>'}).join(""):'<p class="empty">Nada planejado para este dia.</p>')+
+  pbBlock(i,k)+'<div class="row"><div><label for="ri'+i+'">Atração</label><select id="ri'+i+'">'+rtOpts(k)+'</select></div><div><label for="rh'+i+'">Horário (opcional)</label><input id="rh'+i+'" type="time"></div></div><label for="rw'+i+'">Ou escreva o que fazer</label><input id="rw'+i+'" placeholder="Ex.: jantar de fondue"><button class="btn" data-ra="'+i+'">Adicionar ao dia</button></section>'}
+ return h}
+function sprint(){var pk=picks(),L=S.link,cur=-1,T=[["Escolher o destino",L.length>0||KEYS.some(function(k){return S.vote[k]&&S.vote[k][0]})],["Vincular as passagens",L.length>0],["Definir as datas",L.length>0&&L.every(function(k){var t=S.t[k]||{};return t.ida&&t.volta})],["Marcar os passeios",pk.length>0],["Montar o roteiro",pk.length>0&&pk.every(function(p){return S.day[p]})],["Fechar o orçamento",total()>0],["Conferir a mala",L.length>0&&bagItems().every(function(x){return S.bag[x]})]],col=[[],[],[]];
+ T.forEach(function(x,i){if(!x[1]&&cur<0)cur=i});T.forEach(function(x,i){col[x[1]?2:i==cur?1:0].push(x[0])});
+ return'<section class="sec"><h2>Sprint 2027</h2><p class="empty" style="margin-top:-8px">O quadro se atualiza sozinho conforme vocês avançam.</p><div class="two">'+["A fazer","Em andamento","Concluído"].map(function(n,c){return'<div class="box"><h3>'+n+' <span class="tag" style="padding:0 8px">'+col[c].length+"</span></h3>"+(col[c].length?col[c].map(function(x){return'<p style="margin:8px 0;padding:8px 12px;background:var(--bg);border-radius:10px">'+(c==2?"✓ ":"")+x+"</p>"}).join(""):'<p class="empty">Nada aqui.</p>')+"</div>"}).join("")+"</div></section>"}
+var PI=0,PS=[];
+function cartaBox(){var c=S.carta=S.carta||{},hoje=new Date().toISOString().slice(0,10),sp=tripSpan(),dflt=sp.b?new Date(new Date(sp.b+"T12:00:00").getTime()+864e5).toISOString().slice(0,10):"2028-01-01",ab=c.abre||dflt,open=c.sel&&(hoje>=ab||c.rompida);
+ var h='<section class="box" style="margin-top:20px"><h2 style="font-size:28px">Carta para o eu de 2028</h2>';
+ if(!c.sel){h+='<p class="empty">Escrevam agora uma mensagem para quando a viagem já tiver acontecido. Depois de lacrada, ela só abre na data escolhida.</p><label for="cta">'+esc(nm(0))+'</label><textarea id="cta" rows="4" data-ct="a">'+esc(c.a)+'</textarea><label for="ctb">'+esc(nm(1))+'</label><textarea id="ctb" rows="4" data-ct="b">'+esc(c.b)+'</textarea><label for="ctd">Abrir em</label><input id="ctd" type="date" data-cd="1" min="'+hoje+'" value="'+ab+'"><button class="btn" data-cs="1">Lacrar a carta</button><p class="empty" style="margin-bottom:0">O lacre esconde o texto na tela, mas a carta fica salva neste navegador.</p>'}
+ else if(open){h+='<p><span class="tag">Carta aberta</span> Lacrada em '+fd(c.em)+".</p>"+[["a",0],["b",1]].map(function(x){return c[x[0]]?'<div class="dep"><b>'+esc(nm(x[1]))+'</b><p style="margin:4px 0;white-space:pre-wrap">'+esc(c[x[0]])+"</p></div>":""}).join("")}
+ else{var dd=Math.ceil((new Date(ab+"T00:00:00")-new Date())/864e5);h+='<p style="font-size:20px">🔒 Carta lacrada em '+fd(c.em)+". Abre em <b>"+fd(ab)+"</b> ("+dd+(dd==1?" dia":" dias")+').</p><button class="btn s" data-cb="1">Romper o lacre antes da hora</button>'}
+ return h+"</section>"}
+function presSlides(){var P0=[],L=S.link,sp=tripSpan(),cd=sp.a?Math.ceil((new Date(sp.a+"T00:00:00")-new Date())/864e5):null;
+ P0.push('<h1>Viagem 2027</h1><p class="big">'+esc(nm(0))+" e "+esc(nm(1))+'</p><p class="big">'+(L.length?L.map(function(k){return DEST[k].em+" "+DEST[k].nome}).join(" · "):"Destino em decisão")+"</p>"+(sp.a?'<p class="it">'+fd(sp.a)+" a "+fd(sp.b)+"</p>":""));
+ var vt=KEYS.filter(function(k){return S.vote[k]&&(S.vote[k][0]||S.vote[k][1])}),mx=0;
+ if(vt.length){KEYS.forEach(function(k){var v=S.vote[k]||[];mx=Math.max(mx,(+v[0]||0)+(+v[1]||0))});P0.push("<h2>A decisão</h2>"+KEYS.map(function(k){var v=S.vote[k]||[],t=(+v[0]||0)+(+v[1]||0);return'<p class="it">'+DEST[k].em+" "+DEST[k].nome+": "+esc(nm(0))+" "+(v[0]||"-")+" · "+esc(nm(1))+" "+(v[1]||"-")+(mx>0&&t==mx?" ⭐":"")+"</p>"}).join(""))}
+ if(!L.length)P0.push('<h2>Quase lá</h2><p class="big">Falta vincular as passagens de um destino para o plano aparecer aqui.</p>');
+ L.forEach(function(k){var t=S.t[k]||{},p=S.pick[k]||[];P0.push("<h2>"+DEST[k].em+" "+DEST[k].nome+'</h2><p class="it">Ida '+fd(t.ida)+" - Volta "+fd(t.volta)+(days(t)?" ("+days(t)+" dias)":"")+'</p><p class="it">Passagem: '+esc(t.cia||"-")+(t.valor?" ("+esc(t.valor)+" por pessoa)":"")+'</p><p class="it">Hospedagem: '+esc(t.hosp||"-")+'</p><p class="it">'+p.length+(p.length==1?" passeio marcado":" passeios marcados")+"</p>")});
+ for(var i=0;i<nDays();i++){var it=(S.rt||{})[i]||[];if(it.length)P0.push("<h2>"+dayLabel(i)+"</h2>"+it.map(function(x){return'<p class="it">'+(x.t?"🕘 "+esc(x.t)+" ":"")+esc(x.n)+"</p>"}).join(""))}
+ var c=cofre(),g=gSaldo();
+ P0.push('<h2>Orçamento</h2><p class="big">'+brl(c.tot)+" no total, "+brl(c.tot/2)+' por pessoa</p><div class="bar" role="progressbar" aria-label="Meta guardada" aria-valuenow="'+c.pct+'" aria-valuemin="0" aria-valuemax="100"><i style="width:'+c.pct+'%"></i></div><p class="it">'+c.pct+"% guardado. "+cofreMsg(c)+"</p>"+(S.gx.length?'<p class="it">'+g.m+"</p>":""));
+ var b=bagItems(),bd=b.filter(function(x){return S.bag[x]}).length,rs=S.res.filter(function(r){return r.s=="Comprado"}).length;
+ if(L.length)P0.push('<h2>Falta pouco</h2><p class="it">Mala: '+bd+" de "+b.length+" itens</p>"+(S.res.length?'<p class="it">Reservas: '+rs+" de "+S.res.length+" compradas</p>":""));
+ if(S.carta&&S.carta.sel)P0.push('<h2>🔒 Uma carta lacrada</h2><p class="big">Escrita agora, ela abre em '+fd(S.carta.abre)+".</p>");
+ P0.push('<h1>Boa viagem ✈️</h1><p class="big">'+(cd==null?"A data de ida ainda não foi definida.":cd>0?"Faltam "+cd+" dias.":cd==0?"É hoje!":"A viagem já começou.")+"</p>");
+ return P0}
+function presShow(){var el=document.getElementById("pres");if(!el)return;PI=Math.max(0,Math.min(PI,PS.length-1));var b=el.querySelector(".pb");b.innerHTML=PS[PI];b.scrollTop=0;el.querySelector(".pc").textContent=(PI+1)+" / "+PS.length}
+function presOpen(){PS=presSlides();PI=0;var el=document.createElement("div"),x0=0;el.id="pres";el.setAttribute("role","dialog");el.setAttribute("aria-label","Modo apresentação");el.tabIndex=-1;
+ el.innerHTML='<div class="pb" aria-live="polite"></div><div class="pn"><button class="btn" data-pp="-1">Anterior</button><span class="pc"></span><button class="btn" data-pfs="1">Tela cheia</button><button class="btn" data-px="1">Sair</button><button class="btn" data-pp="1">Próximo</button></div>';
+ el.addEventListener("touchstart",function(e){x0=e.changedTouches[0].clientX},{passive:true});
+ el.addEventListener("touchend",function(e){var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60){PI+=dx<0?1:-1;presShow()}},{passive:true});
+ document.body.appendChild(el);presShow();el.focus()}
+function presClose(){var el=document.getElementById("pres");if(el)el.remove();try{if(document.fullscreenElement)document.exitFullscreen()}catch(e){}}
+document.addEventListener("keydown",function(e){if(!document.getElementById("pres"))return;if(e.key=="ArrowRight"||e.key=="PageDown"){PI++;presShow()}else if(e.key=="ArrowLeft"||e.key=="PageUp"){PI--;presShow()}else if(e.key=="Escape")presClose()});
+var PBO={gramado:["Rua Coberta","Snowland (neve coberta)","Fábricas de chocolate","Café colonial","Museu de cera Dreamland","Spa do hotel"],canela:["Cinema 4D no Alpen Park","Fondue em restaurante da serra","Café colonial","Compras e chocolate no centro","Spa do hotel"],floripa:["Mercado Público do Centro","Centro histórico e museus","Shopping e cinema","Almoço de frutos do mar","Spa ou massagem"],balneario:["Oceanic Aquarium","Balneário Shopping","Atlântico Shopping","Cinema ou boliche","Almoço de frutos do mar"]};
+var FOOD={gramado:["Fondue de queijo","Fondue de chocolate","Café colonial","Chocolate artesanal","Galeto al primo canto","Sopa de agnolini"],canela:["Pinhão","Fondue","Café colonial","Galeto al primo canto","Pratos típicos da serra"],floripa:["Ostras do Ribeirão da Ilha","Casquinha de siri","Camarão","Frutos do mar","Pirão de peixe"],balneario:["Frutos do mar","Casquinha de siri","Camarão","Cuca e café colonial alemão","Marreco com repolho roxo"]};
+var TRS=[["Aeroporto de Porto Alegre → Gramado","Aeroporto Salgado Filho, Porto Alegre","Gramado, RS","cerca de 120 km, uns 2h de carro ou transfer"],["Gramado ↔ Canela","Gramado, RS","Canela, RS","cerca de 8 km, uns 15 min"],["Aeroporto de Florianópolis → centro","Aeroporto Hercílio Luz, Florianópolis","Centro, Florianópolis","cerca de 12 km, ônibus linha 183 ou carro"],["Aeroporto de Navegantes → Balneário Camboriú","Aeroporto de Navegantes","Balneário Camboriú, SC","uns 30 min de carro"],["Balneário Camboriú → Penha (Beto Carrero)","Balneário Camboriú, SC","Beto Carrero World, Penha, SC","uns 30 min de carro"],["Floripa ↔ Balneário Camboriú","Florianópolis","Balneário Camboriú, SC","cerca de 1h30 de carro"]];
+function mapDay(i,k){var it=S.rt[i]||[],e=encodeURIComponent,q=function(x){return x.n.indexOf("Bate-volta")==0?x.n.replace("Bate-volta: ",""):x.n+", "+DEST[k].nome};if(!it.length)return"";if(it.length==1)return"https://www.google.com/maps/search/?api=1&query="+e(q(it[0]));var u="https://www.google.com/maps/dir/?api=1&origin="+e(q(it[0]))+"&destination="+e(q(it[it.length-1]));if(it.length>2)u+="&waypoints="+it.slice(1,-1).map(function(x){return e(q(x))}).join("%7C");return u}
+function pbBlock(i,k){S.pb=S.pb||{};var pb=S.pb[i]||[],mu=mapDay(i,k);
+ return(mu?'<p><a class="btn s" style="text-decoration:none;display:inline-block" href="'+mu+'" target="_blank" rel="noopener">Ver o dia no mapa</a></p>':"")+'<h3 style="margin-top:14px">☔ Plano B se chover</h3>'+(pb.length?pb.map(function(x,j){return'<div class="row" style="align-items:center;margin:6px 0"><span>'+esc(x)+'</span><div><button class="btn s" data-pbx="'+i+":"+j+'">Remover</button></div></div>'}).join(""):'<p class="empty">Nenhuma alternativa coberta ainda.</p>')+'<div class="row" style="align-items:end"><div><label for="pb'+i+'">Alternativa coberta</label><select id="pb'+i+'">'+PBO[k].map(function(x){return"<option>"+esc(x)+"</option>"}).join("")+'</select></div><div><button class="btn s" style="margin-top:0" data-pb="'+i+'">Adicionar plano B</button></div></div>'}
+function tf(f,l,v){var x=S.tr[f]!==undefined?S.tr[f]:v;return'<div><label for="tr'+f+'">'+l+'</label><input id="tr'+f+'" inputmode="decimal" data-tr="'+f+'" value="'+esc(x)+'"></div>'}
+function transporte(){S.tr=S.tr||{};var t=S.tr,e=encodeURIComponent,car=num(t.dias!==undefined?t.dias:nDays())*num(t.dia)+num(t.comb)+num(t.ped),app=num(t.n)*num(t.cor);
+ return'<section class="box" style="margin-top:16px"><h2 style="font-size:28px">Como se deslocar</h2><p class="empty">Distâncias e tempos aproximados. Abram a rota para ver o tempo de hoje.</p>'+TRS.map(function(r){return'<div class="row" style="align-items:center;margin:6px 0"><span><b>'+r[0]+"</b><br><small>"+r[3]+'</small></span><div><a class="btn s" style="text-decoration:none;display:inline-block;margin-top:0" href="https://www.google.com/maps/dir/?api=1&origin='+e(r[1])+"&destination="+e(r[2])+'" target="_blank" rel="noopener">Ver rota</a></div></div>'}).join("")+
+ '<h3 style="margin-top:16px">Carro alugado ou transfer e aplicativo?</h3><div class="two" style="gap:4px 16px">'+tf("dias","Dias com carro",nDays())+tf("dia","Diária do carro","")+tf("comb","Combustível total","")+tf("ped","Pedágio e estacionamento","")+tf("n","Corridas de app ou transfer","")+tf("cor","Valor médio por corrida","")+"</div>"+
+ (car>0||app>0?'<div class="sp"><div><small>Carro alugado</small><b>'+brl(car)+"</b><br>"+brl(car/2)+' por pessoa</div><div><small>Transfer e app</small><b>'+brl(app)+"</b><br>"+brl(app/2)+' por pessoa</div></div><p><b>'+(car>0&&app>0?(car<app?"O carro":"Transfer e app")+" sai "+brl(Math.abs(car-app))+" mais barato.":"Preencham os dois lados para comparar.")+"</b></p>":"")+"</section>"}
+function foodDone(){var n=0;Object.keys(S.fd).forEach(function(k){Object.keys(S.fd[k]).forEach(function(d){if(S.fd[k][d].p)n++})});return n}
+function foodBox(k){var f=S.fd[k]||{},l=FOOD[k],n=l.filter(function(x){return f[x]&&f[x].p}).length;
+ return'<section class="sec"><div class="box"><h3>Cardápio para provar</h3><p class="empty">'+n+" de "+l.length+" provados. Sugestões típicas: confirmem os lugares antes.</p>"+l.map(function(x){var o=f[x]||{},nt=o.n||[];return'<div class="row" style="align-items:center;margin:6px 0"><label class="chk" style="margin:0"><input type="checkbox" data-fp="'+k+"|"+esc(x)+'"'+(o.p?" checked":"")+">"+esc(x)+"</label>"+(o.p?'<div class="row" style="gap:8px">'+[0,1].map(function(i){return'<select aria-label="Nota de '+esc(nm(i))+" para "+esc(x)+'" data-fn="'+k+"|"+esc(x)+"|"+i+'"><option value="">'+esc(nm(i))+"</option>"+[1,2,3,4,5].map(function(v){return"<option"+(nt[i]==v?" selected":"")+">"+v+"</option>"}).join("")+"</select>"}).join("")+"</div>":"<span></span>")+"</div>"}).join("")+"</div></section>"}
+function chList(){var br=false;Object.keys(S.rt).forEach(function(i){(S.rt[i]||[]).forEach(function(x){if(x.n.indexOf("Bate-volta")==0)br=true})});var dy=Object.keys(S.dy).filter(function(i){return(S.dy[i]||"").trim()}).length,c=cofre();
+ return[["f","Provar 3 comidas típicas",foodDone()>=3,1],["b","Conhecer uma cidade bate-volta",br,1],["d","Escrever 3 dias no diário",dy>=3,1],["m","Bater a meta do cofrinho",c.tot>0&&c.pct>=100,1],["foto","Uma foto da dupla em cada destino",!!S.ch.foto],["sol","Ver um nascer ou pôr do sol juntos",!!S.ch.sol],["lem","Trazer uma lembrança para o outro",!!S.ch.lem],["chuva","Transformar um dia de chuva em passeio",!!S.ch.chuva],["lento","Um dia sem pressa, sem roteiro fechado",!!S.ch.lento]]}
+function desafiosBox(){var L=chList(),n=L.filter(function(x){return x[2]}).length,pc=Math.round(n/L.length*100);
+ return'<section class="box" style="margin-top:20px"><h2 style="font-size:28px">Desafios da viagem</h2><p class="empty">'+n+" de "+L.length+' concluídos. Os automáticos se marcam sozinhos.</p><div role="progressbar" aria-label="Desafios" aria-valuenow="'+pc+'" aria-valuemin="0" aria-valuemax="100" style="height:14px;background:var(--line);border-radius:99px;overflow:hidden;margin:8px 0 12px"><div style="width:'+pc+'%;height:100%;background:var(--sun)"></div></div>'+L.map(function(x){return x[3]?'<p style="margin:6px 0">'+(x[2]?"✅ ":"⬜ ")+x[1]+' <span class="empty">(automático)</span></p>':'<label class="chk"><input type="checkbox" data-ch="'+x[0]+'"'+(x[2]?" checked":"")+">"+x[1]+"</label>"}).join("")+"</section>"}
+function allP(d){var a=d.pontos.slice();(d.sub||[]).forEach(function(s){a=a.concat(s.pontos)});return a}
+function sub(d,k){if(!d.sub)return"";return'<section class="sec"><h2>Interligado com '+P+'</h2><div class="two">'+d.sub.map(function(s){return'<div class="box"><h3>'+s.em+' '+s.nome+'</h3><p>'+s.locais+'</p><p class="empty" style="margin:0 0 6px">Marque os que quer fazer.</p>'+chk(k,s.pontos)+"</div>"}).join("")+"</div></section>"}
+function trip(){
+ if(!S.link.length)return'<section class="hero"><h1>Viagem '+P+'</h1><p>Nenhuma viagem vinculada ainda. Quando as passagens forem compradas, abra o destino e use o botão para vincular.</p></section>'+steps()+nextBox()+'<div class="dg">'+KEYS.map(function(k){return'<button class="dc" data-t="'+k+'"><div class="em">'+DEST[k].em+"</div><h3>"+DEST[k].nome+"</h3></button>"}).join("")+"</div>";
+ var h='<section class="hero"><h1>A viagem '+P+"</h1></section>"+steps()+nextBox();
+ S.link.forEach(function(k){var d=DEST[k],t=S.t[k]||{},pk=S.pick[k]||[];
+  h+='<section class="box" style="margin-bottom:20px;border-style:dashed"><p class="empty" style="margin:0 0 10px;letter-spacing:2px;font-size:13px">CARTÃO DE EMBARQUE · '+esc(nm(0)).toUpperCase()+" + "+esc(nm(1)).toUpperCase()+'</p><div class="bp"><div><b>'+esc(t.origem||"Origem")+"</b></div>"+P+'<div><b>'+d.em+" "+d.nome+'</b></div></div>'+
+  '<div class="sp"><div><small>Ida</small>'+fd(t.ida)+"</div><div><small>Volta</small>"+fd(t.volta)+"</div><div><small>Dias</small>"+(days(t)||"—")+"</div><div><small>Passagem</small>"+esc(t.cia||"—")+" "+esc(t.valor)+"</div><div><small>Hospedagem</small>"+esc(t.hosp||"—")+"</div></div>"+
+  '<h3 style="margin-top:20px">Passeios e atrações de '+d.nome+"</h3>"+
+  allP(d).concat(S.cust[k]||[]).map(function(p){return'<label class="chk"><input type="checkbox" data-pk="'+k+'" value="'+esc(p)+'"'+(pk.indexOf(p)>-1?" checked":"")+">"+p+"</label>"}).join("")+"</section>";});
+ h+='<section class="box"><h3>Extras</h3>'+(S.ex.length?'<ul class="l">'+S.ex.map(function(x,i){return"<li>"+esc(x.k)+": "+esc(x.n)+(x.v?" ("+esc(x.v)+")":"")+' <button class="btn s" data-xr="'+i+'">Remover</button></li>'}).join("")+"</ul>":'<p class="empty">Nada extra ainda. Adicione um passeio, brinde ou o que quiser.</p>')+
+ '<div class="row"><div><label for="xk">Tipo</label><select id="xk"><option>Passeio</option><option>Brinde</option><option>Outro</option></select></div><div><label for="xn">O que é</label><input id="xn"></div></div><label for="xv">Valor (opcional)</label><input id="xv" placeholder="R$"><button class="btn" data-ex="1">Adicionar extra</button></section>';
+ return h+tripX();
+}
+document.addEventListener("click",function(e){
+ var el=e.target.closest("[data-t],[data-link],[data-dep],[data-rm],[data-ex],[data-xr],[data-q],[data-rn],[data-rr],[data-cp],[data-copy],[data-restore],[data-pdf],[data-spin],[data-gx],[data-gr],[data-th],[data-close],[data-al],[data-ar],[data-cu],[data-ra],[data-rx],[data-rauto],[data-rclr],[data-pres],[data-pp],[data-px],[data-pfs],[data-cs],[data-cb],[data-pb],[data-pbx]");if(!el)return;var d=el.dataset;
+ if(d.t)return go(d.t);
+ if(d.q){var q=d.q.split(":");S.qz[+q[0]]=q[1];save();return render()}
+ if(d.rn){var r=document.getElementById("rn").value.trim();if(!r)return;S.res.push({n:r,s:"A comprar"});save();return render()}
+ if(d.rr){S.res.splice(+d.rr,1);save();return render()}
+ if(d.close){var iw=document.getElementById("intro");if(iw){iw.style.opacity=0;setTimeout(function(){iw.remove()},700)}return}
+ if(d.al){var at=document.getElementById("at").value.trim();if(!at)return;S.al.push({k:document.getElementById("ak").value,t:at});save();return render()}
+ if(d.ar){S.al.splice(+d.ar,1);save();return render()}
+ if(d.cu){S.cu[d.cu]=(S.cu[d.cu]||0)+1;save();return render()}
+ if(d.ra){var ri=+d.ra,rw=document.getElementById("rw"+ri).value.trim(),rn=rw||document.getElementById("ri"+ri).value;if(!rn)return;(S.rt[ri]=S.rt[ri]||[]).push({n:rn,t:document.getElementById("rh"+ri).value});S.rt[ri].sort(function(a,b){return(a.t||"99").localeCompare(b.t||"99")});S.day[rn]=ri+1;save();return render()}
+ if(d.rx){var q2=d.rx.split(":"),rm=S.rt[q2[0]].splice(+q2[1],1)[0];if(rm&&!rtHas(rm.n))delete S.day[rm.n];save();return render()}
+ if(d.rauto){var N2=nDays(),al=[];S.link.forEach(function(k){(S.pick[k]||[]).forEach(function(p){if(!rtHas(p))al.push([k,p])})});if(!al.length){toast("Marquem passeios nas abas dos destinos primeiro.");return}var per=Math.max(1,Math.ceil(al.length/N2));al.forEach(function(x,c){var di=Math.min(N2-1,Math.floor(c/per));(S.rt[di]=S.rt[di]||[]).push({n:x[1],t:""});S.rd[di]=S.rd[di]||x[0];S.day[x[1]]=di+1});save();return render()}
+ if(d.rclr){S.rt={};S.day={};save();return render()}
+ if(d.pb){var pi=+d.pb;(S.pb[pi]=S.pb[pi]||[]).push(document.getElementById("pb"+pi).value);save();return render()}
+ if(d.pbx){var pq=d.pbx.split(":");S.pb[pq[0]].splice(+pq[1],1);save();return render()}
+ if(d.pres){presOpen();return}
+ if(d.pp){PI+=+d.pp;presShow();return}
+ if(d.px){presClose();return}
+ if(d.pfs){var pe=document.getElementById("pres");try{if(document.fullscreenElement)document.exitFullscreen();else pe.requestFullscreen()}catch(x){}return}
+ if(d.cs){var c0=S.carta,ab0=document.getElementById("ctd").value,h0=new Date().toISOString().slice(0,10);c0.a=document.getElementById("cta").value;c0.b=document.getElementById("ctb").value;if(!c0.a.trim()&&!c0.b.trim()){toast("Escrevam pelo menos uma mensagem.");return}if(!ab0||ab0<=h0){toast("Escolham uma data de abertura no futuro.");return}c0.abre=ab0;c0.sel=true;c0.em=h0;save();return render()}
+ if(d.cb){if(!window.cbA){window.cbA=1;el.textContent="Clique de novo para confirmar";setTimeout(function(){window.cbA=0;if(el.isConnected)el.textContent="Romper o lacre antes da hora"},4000);return}S.carta.rompida=true;window.cbA=0;save();return render()}
+ if(d.pdf){pdf();return}
+ if(d.th){var cur=document.documentElement.getAttribute("data-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");S.th=cur=="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",S.th);save();return}
+ if(d.gx){var gd=document.getElementById("gd").value.trim(),gv=document.getElementById("gv").value;if(!gd||!num(gv))return;S.gx.push({d:gd,v:gv,w:+document.getElementById("gw").value});save();return render()}
+ if(d.gr){S.gx.splice(+d.gr,1);save();return render()}
+ if(d.spin){var el2=document.getElementById("rl"),n=0,iv=setInterval(function(){el2.textContent=DEST[KEYS[n++%4]].em;if(n>22){clearInterval(iv);var k=KEYS[Math.floor(Math.random()*4)];el2.textContent=DEST[k].em;document.getElementById("rr").innerHTML="A sorte escolheu <b>"+DEST[k].nome+"</b>! "+'<button class="btn s" data-t="'+k+'">Abrir destino</button>'}},90);return}
+ if(d.cp){var cv=document.getElementById("cp").value.trim();if(!cv)return;(S.cust[d.cp]=S.cust[d.cp]||[]).push(cv);save();return render()}
+ if(d.copy){var ta=document.getElementById("rs");ta.select();try{navigator.clipboard.writeText(ta.value)}catch(x){document.execCommand("copy")}el.textContent="Copiado";return}
+ if(d.restore){try{var o=JSON.parse(document.getElementById("bk").value);o.ph=S.ph;o.carta=S.carta;S=o;["t","dep","pick","dy","nm","vote","pc","day","bag","cust"].forEach(function(k){S[k]=S[k]||{}});["ex","link","res","qz","ph"].forEach(function(k){S[k]=S[k]||[]});save();render()}catch(x){el.textContent="Código inválido"}return}
+ if(d.link){var i=S.link.indexOf(d.link);if(i>-1)S.link.splice(i,1);else S.link.push(d.link);save();return render()}
+ if(d.dep){var x=document.getElementById("dt").value.trim();if(!x)return;(S.dep[d.dep]=S.dep[d.dep]||[]).push({t:x,a:document.getElementById("da").value.trim()});save();return render()}
+ if(d.rm){var p=d.rm.split(":");S.dep[p[0]].splice(+p[1],1);save();return render()}
+ if(d.ex){var n=document.getElementById("xn").value.trim();if(!n)return;S.ex.push({k:document.getElementById("xk").value,n:n,v:document.getElementById("xv").value});save();return render()}
+ if(d.xr){S.ex.splice(+d.xr,1);save();render()}
+});
+document.addEventListener("input",function(e){var D=e.target.dataset;
+ if(D.pc){var a=D.pc.split(":");(S.pc[a[0]]=S.pc[a[0]]||{})[a[1]]=e.target.value;return save()}
+ if(D.ct){S.carta[D.ct]=e.target.value;return save()}
+ if(D.cd){S.carta.abre=e.target.value;return save()}
+ if(D.dy){S.dy[D.dy]=e.target.value;return save()}
+ if(D.nm){S.nm[D.nm]=e.target.value;return save()}
+ var f=D.f;if(!f)return;(S.t[tab]=S.t[tab]||{})[f]=e.target.value;save()});
+document.addEventListener("change",function(e){var t=e.target,D=t.dataset;
+ if(D.vt){var a=D.vt.split(":");(S.vote[a[0]]=S.vote[a[0]]||[])[+a[1]]=t.value;save();return render()}
+ if(D.dy2){S.day[D.dy2]=t.value;save();return render()}
+ if(D.bag){S.bag[D.bag]=t.checked;save();return}
+ if(D.rs){S.res[+D.rs].s=t.value;save();return}
+ if(D.ph){readPh(t.files);return}
+ if(D.cf){S.cf[D.cf]=t.value;save();return render()}
+ if(D.fp){var fa=D.fp.split("|"),fo=(S.fd[fa[0]]=S.fd[fa[0]]||{});fo[fa[1]]=fo[fa[1]]||{};fo[fa[1]].p=t.checked;save();return render()}
+ if(D.fn){var fb=D.fn.split("|"),fo2=(S.fd[fb[0]]=S.fd[fb[0]]||{});fo2[fb[1]]=fo2[fb[1]]||{};(fo2[fb[1]].n=fo2[fb[1]].n||[])[+fb[2]]=t.value;save();return render()}
+ if(D.ch){S.ch[D.ch]=t.checked;save();return render()}
+ if(D.tr){S.tr[D.tr]=t.value;save();return render()}
+ if(D.rd){S.rd[D.rd]=t.value;save();return render()}
+ if(D.rtn){S.rtn=Math.max(1,Math.min(21,+t.value||5));save();return render()}
+ if(D.vl){var q=D.vl.split(":");(S.vl[q[0]]=S.vl[q[0]]||{})[q[1]]=t.value;save();return render()}
+ if(t.dataset.f&&(t.type=="date")){render();return}
+ if(t.dataset.pk){var a=S.pick[t.dataset.pk]=S.pick[t.dataset.pk]||[],i=a.indexOf(t.value);if(t.checked&&i<0)a.push(t.value);if(!t.checked&&i>-1)a.splice(i,1);save()}});
+if(S.th)document.documentElement.setAttribute("data-theme",S.th);
+var h=location.hash.slice(1);if(TABS.indexOf(h)>-1)tab=h;
+render();
+setTimeout(function(){var i=document.getElementById("intro");if(!i)return;var a=i.querySelector(".A"),b=i.querySelector(".B");if(a)a.style.display="none";if(b)b.style.display="flex"},7600);
+</script>
+</body>
+</html>
